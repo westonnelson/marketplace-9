@@ -7,7 +7,7 @@ type Props = {
 }
 
 type ActivityQuery = NonNullable<
-  Exclude<Parameters<typeof useCollectionActivity>['0'], boolean>
+  Exclude<Parameters<typeof useCollectionActivity>[0], boolean>
 >
 type ActivityTypes = Exclude<ActivityQuery['types'], string>
 

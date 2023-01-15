@@ -102,7 +102,7 @@ const Listings: FC<Props> = ({ token }) => {
 export default Listings
 
 function processOrder(
-  order: NonNullable<ReturnType<typeof useListings>>['data']['0'] | undefined,
+  order: NonNullable<ReturnType<typeof useListings>>['data'][0] | undefined,
   index: number
 ) {
   const from = {

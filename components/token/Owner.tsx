@@ -1,12 +1,13 @@
 import EthAccount from 'components/EthAccount'
 import Link from 'next/link'
-import { FC } from 'react'
+import React, { FC } from 'react'
 import * as Tooltip from '@radix-ui/react-tooltip'
 import { FiAlertCircle } from 'react-icons/fi'
 import { useTokens } from '@reservoir0x/reservoir-kit-ui'
 import { Collection } from 'types/reservoir'
 import RarityTooltip from 'components/RarityTooltip'
 import { formatNumber } from 'lib/numbers'
+import { optimizeImage } from '../../lib/optmizeImage'
 
 type Props = {
   details: ReturnType<typeof useTokens>['data'][0]
@@ -25,6 +26,18 @@ const Owner: FC<Props> = ({ details, bannedOnOpenSea, collection }) => {
   return (
     <div className="col-span-full md:col-span-4 lg:col-span-5 lg:col-start-2">
       <article className="col-span-full rounded-2xl border border-gray-300 bg-white p-6 dark:border-neutral-600 dark:bg-black">
+        <Link href={`/collections/${collection?.id}`} legacyBehavior={true}>
+          <a className="inline-flex items-center gap-2 mb-5">
+            <img
+              src={optimizeImage(collection?.image as string, 50)}
+              alt="collection avatar"
+              className="h-9 w-9 rounded-full"
+            />
+            <span className="reservoir-h6 font-headings dark:text-white">
+            {token?.collection?.name}
+          </span>
+          </a>
+        </Link>
         {token?.rarityRank &&
           collection?.tokenCount &&
           token?.attributes &&
@@ -57,7 +70,7 @@ const Owner: FC<Props> = ({ details, bannedOnOpenSea, collection }) => {
             </div>
           )}
         <div className="reservoir-h3 mb-3 flex items-center gap-4 overflow-hidden font-headings dark:text-white">
-          <div>{token?.name || `#${token?.tokenId}`}</div>
+          <div>{token?.name || `${collection?.name} #${token?.tokenId}`}</div>
           {bannedOnOpenSea && (
             <Tooltip.Provider>
               <Tooltip.Root delayDuration={0}>

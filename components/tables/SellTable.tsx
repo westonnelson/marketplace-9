@@ -19,6 +19,7 @@ import FormatNativeCrypto from 'components/FormatNativeCrypto'
 import Tooltip from 'components/Tooltip'
 import { setToast } from 'components/token/setToast'
 import { FaBolt } from 'react-icons/fa'
+import { FeeType } from '../../types/reservoir'
 
 const COLLECTION = process.env.NEXT_PUBLIC_COLLECTION
 const COMMUNITY = process.env.NEXT_PUBLIC_COMMUNITY
@@ -341,7 +342,7 @@ const SellTable: FC<Props> = ({ modal, isOwner, address }) => {
                           />
                         </div>
 
-                        {feeBreakdown?.map((fee, i) => (
+                        {feeBreakdown?.map((fee: FeeType, i: number) => (
                           <div
                             key={i}
                             className="flex justify-between gap-2 text-xs text-neutral-400"
@@ -460,7 +461,7 @@ const SellTable: FC<Props> = ({ modal, isOwner, address }) => {
 
 export default SellTable
 
-function processBid(bid: ReturnType<typeof useUserTopBids>['data']['0']) {
+function processBid(bid: ReturnType<typeof useUserTopBids>['data'][0]) {
   const tokenId = bid?.token?.tokenId
   const contract = bid?.token?.collection?.id
   const href = `/${contract}/${tokenId}`

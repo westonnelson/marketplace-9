@@ -120,7 +120,7 @@ const TokenCard: FC<Props> = ({
               <div className="absolute inset-0 grid place-items-center backdrop-blur-lg">
                 <div>
                   <img
-                    src={optimizeImage(collectionImage, imageSize)}
+                    src={optimizeImage(collectionImage || 'https://via.placeholder.com/140', imageSize)}
                     alt={`${token?.token?.collection?.name}`}
                     className="mx-auto mb-4 h-16 w-16 overflow-hidden rounded-full border-2 border-white"
                     width="64"
@@ -132,7 +132,7 @@ const TokenCard: FC<Props> = ({
                 </div>
               </div>
               <img
-                src={optimizeImage(collectionImage, imageSize)}
+                src={optimizeImage(collectionImage || 'https://via.placeholder.com/140', imageSize)}
                 alt={`${token?.token?.collection?.name}`}
                 className="aspect-square w-full object-cover"
                 width="250"
@@ -196,9 +196,9 @@ const TokenCard: FC<Props> = ({
               </div>
             </>
           ) : !isOwner ? (
-            <div className="h-[64px]"></div>
+            <div className="h-[64px]"/>
           ) : (
-            <div className="h-6"></div>
+            <div className="h-6"/>
           )}
         </div>
         {isOwner && (

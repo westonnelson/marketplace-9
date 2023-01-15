@@ -14,4 +14,10 @@ type TokenDetails = NonNullable<
   >[0]['token']
 >
 
+type FeeType = {
+  kind?: string | undefined;
+  recipient?: string | undefined;
+  bps?: number | undefined;
+}
+
 type TokenDetailsAttribute = NonNullable<TokenDetails['attributes']>[0]

@@ -74,7 +74,5 @@ const getKey: (
 
   if (sortBy === '30DayVolume' || sortBy === '7DayVolume') query.sortBy = sortBy
 
-  const href = setParams(pathname, query)
-
-  return href
+  return setParams(pathname, query)
 }

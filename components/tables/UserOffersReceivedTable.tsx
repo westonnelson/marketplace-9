@@ -346,7 +346,7 @@ const UserOffersReceivedTable: FC<Props> = ({
                           />
                         </div>
 
-                        {feeBreakdown?.map((fee, i) => (
+                        {feeBreakdown?.map((fee: any, i: number) => (
                           <div
                             key={i}
                             className="flex justify-between gap-2 text-xs text-neutral-400"
@@ -468,7 +468,7 @@ const UserOffersReceivedTable: FC<Props> = ({
 
 export default UserOffersReceivedTable
 
-function processBid(bid: ReturnType<typeof useUserTopBids>['data']['0']) {
+function processBid(bid: ReturnType<typeof useUserTopBids>['data'][0]) {
   const tokenId = bid?.token?.tokenId
   const contract = bid?.token?.collection?.id
   const href = `/${contract}/${tokenId}`

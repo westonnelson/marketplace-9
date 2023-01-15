@@ -365,7 +365,7 @@ const UserOffersTable: FC<Props> = ({ modal, collectionIds }) => {
 
 export default UserOffersTable
 
-function processBid(bid: ReturnType<typeof useBids>['data']['0']) {
+function processBid(bid: ReturnType<typeof useBids>['data'][0]) {
   const kind = bid?.criteria?.kind
   // @ts-ignore
   const key = bid?.criteria?.data?.attributes?.[0]?.key

@@ -75,32 +75,6 @@ const TokenInfo: FC<Props> = ({ token }) => {
         <div className="reservoir-h5 font-headings dark:text-white">
           Token Info
         </div>
-        <div className="flex items-center gap-2">
-          <a
-            className="reservoir-h6 font-headings"
-            target="_blank"
-            rel="noopener noreferrer"
-            href={`https://looksrare.org/collections/${token?.contract}/${token?.tokenId}`}
-          >
-            <img
-              src="/icons/LooksRare.svg"
-              alt="LooksRare Icon"
-              className="h-6 w-6"
-            />
-          </a>
-          <a
-            className="reservoir-h6 font-headings"
-            target="_blank"
-            rel="noopener noreferrer"
-            href={`https://opensea.io/assets/${token?.contract}/${token?.tokenId}`}
-          >
-            <img
-              src="/icons/OpenSea.svg"
-              alt="OpenSea Icon"
-              className="h-6 w-6"
-            />
-          </a>
-        </div>
       </div>
       {token?.contract && (
         <div className="mb-4 flex items-center justify-between">

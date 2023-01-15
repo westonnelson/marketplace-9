@@ -7,22 +7,20 @@ import LoadingCardCollection from './LoadingCardCollection'
 import Masonry from 'react-masonry-css'
 
 type Props = {
-  collections: ReturnType<typeof usePaginatedCollections>
+  collections: any
 }
 
 const CollectionsGrid: FC<Props> = ({ collections }) => {
   const {
-    collections: { data, isValidating },
-    ref,
+    collections: collectionsData
   } = collections
 
-  const mappedCollections = data
-    ? data
-        .flatMap(({ collections }) => collections)
+  const mappedCollections = collectionsData
+    ? collectionsData
         // @ts-ignore
         .filter((collection) => !collection?.sampleImages?.includes(null))
     : []
-  const didReachEnd = data && data[data.length - 1]?.collections?.length === 0
+  const didReachEnd = true;
 
   return (
     <Masonry
@@ -39,7 +37,7 @@ const CollectionsGrid: FC<Props> = ({ collections }) => {
       className="masonry-grid col-span-full px-2"
       columnClassName="masonry-grid_column"
     >
-      {!data && isValidating
+      {!collectionsData
         ? Array(16)
             .fill(null)
             .map((_, index) => (
@@ -49,13 +47,7 @@ const CollectionsGrid: FC<Props> = ({ collections }) => {
               />
             ))
         : mappedCollections
-            ?.filter((collection) => {
-              if (collection?.tokenCount) {
-                return +collection.tokenCount <= 30000
-              }
-              return false
-            })
-            .map((collection, idx) => (
+            .map((collection: any, idx: number) => (
               <Link
                 key={`${collection?.name}${idx}`}
                 href={`/collections/${collection?.id}`}
@@ -67,7 +59,7 @@ const CollectionsGrid: FC<Props> = ({ collections }) => {
                     value={collection?.name || ''}
                   />
                   <div className="mt-3 flex items-center gap-2">
-                    {collection?.image ? (
+                    {(collection?.image || false) ? (
                       <img
                         src={optimizeImage(collection?.image, 80)}
                         className="h-12 w-12 rounded-full"
@@ -84,20 +76,6 @@ const CollectionsGrid: FC<Props> = ({ collections }) => {
                 </a>
               </Link>
             ))}
-      {!didReachEnd &&
-        Array(20)
-          .fill(null)
-          .map((_, index) => {
-            if (index === 0) {
-              return (
-                <LoadingCardCollection
-                  viewRef={ref}
-                  key={`loading-card-${index}`}
-                />
-              )
-            }
-            return <LoadingCardCollection key={`loading-card-${index}`} />
-          })}
     </Masonry>
   )
 }

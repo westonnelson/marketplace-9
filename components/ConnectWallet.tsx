@@ -20,6 +20,7 @@ import { truncateAddress, truncateEns } from 'lib/truncateText'
 const DARK_MODE = process.env.NEXT_PUBLIC_DARK_MODE
 const DISABLE_POWERED_BY_RESERVOIR =
   process.env.NEXT_PUBLIC_DISABLE_POWERED_BY_RESERVOIR
+const CHAIN_ID = process.env.NEXT_PUBLIC_CHAIN_ID || 1
 
 const ConnectWallet: FC = () => {
   const account = useAccount()
@@ -117,6 +118,9 @@ type Props = {
 }
 
 export const Balance: FC<Props> = ({ address }) => {
-  const { data: balance } = useBalance({ address: address as Address })
+  const { data: balance } = useBalance({
+      chainId: +CHAIN_ID,
+      address: address as Address
+    })
   return <FormatNativeCrypto amount={balance?.value} />
 }

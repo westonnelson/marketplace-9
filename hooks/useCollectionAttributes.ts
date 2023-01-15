@@ -11,7 +11,7 @@ const PROXY_API_BASE = process.env.NEXT_PUBLIC_PROXY_API_BASE
 type Attributes =
   paths['/collections/{collection}/attributes/explore/v3']['get']['responses']['200']['schema']
 
-export default function useCollectionAttributes(
+function useCollectionAttributes(
   router: NextRouter,
   collectionId: string | undefined
 ) {
@@ -20,11 +20,9 @@ export default function useCollectionAttributes(
   function getUrl() {
     if (!collectionId) return undefined
 
-    const pathname = `${PROXY_API_BASE}/collections/${
+    return `${PROXY_API_BASE}/collections/${
       router.query.id || collectionId
     }/attributes/explore/v3`
-
-    return pathname
   }
 
   const pathname = getUrl()
@@ -85,7 +83,7 @@ const getKey: (
     query.attributeKey = router.query.attribute_key.toString()
   }
 
-  const href = setParams(pathname, query)
-
-  return href
+  return setParams(pathname, query)
 }
+
+export default useCollectionAttributes;

@@ -49,6 +49,7 @@ function formatNumber(
  *  Convert ETH values to human readable formats
  * @param amount An ETH amount
  * @param maximumFractionDigits Number of decimal digits
+ * @param decimals Number of decimal
  * @returns returns the ETH value as a `string` or `-` if the amount is `null` or `undefined`
  */
 function formatBN(

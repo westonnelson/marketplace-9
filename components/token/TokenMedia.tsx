@@ -5,30 +5,31 @@ import { FC } from 'react'
 import { TokenDetails } from 'types/reservoir'
 
 type Props = {
-  token?: TokenDetails
+  token?: TokenDetails;
+  collectionImage?: string;
 }
 
-const TokenMedia: FC<Props> = ({ token }) => {
+const TokenMedia: FC<Props> = ({ token, collectionImage }) => {
   return (
     <div className="col-span-full md:col-span-4 lg:col-span-5 lg:col-start-2">
       <Script
         type="module"
         src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
-      ></Script>
+      />
       <Script
         noModule
         src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"
-      ></Script>
+      />
       {token?.media === null ? (
         <img
           alt="Token Image"
           className="w-full rounded-2xl"
-          src={optimizeImage(token?.image, 533)}
+          src={optimizeImage(token?.image || collectionImage, 533)}
         />
       ) : (
         <Media
           media={token?.media as string}
-          tokenImage={optimizeImage(token?.image, 533)}
+          tokenImage={optimizeImage(token?.image || collectionImage, 533)}
         />
       )}
     </div>
@@ -92,7 +93,7 @@ const Media: FC<{
         shadow-intensity="1"
         camera-controls
         enable-pan
-      ></model-viewer>
+      />
     )
   }
 
@@ -125,7 +126,7 @@ const Media: FC<{
         width="533"
         src={media}
         sandbox="allow-scripts"
-      ></iframe>
+      />
     )
   }
 

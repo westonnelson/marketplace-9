@@ -100,7 +100,7 @@ const UserTokensGrid: FC<Props> = ({ fallback, owner }) => {
             return <LoadingCard key={`loading-card-${index}`} />
           })
       ) : (
-        <span ref={ref}></span>
+        <span ref={ref}/>
       )}
     </div>
   )

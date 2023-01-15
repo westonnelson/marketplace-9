@@ -68,6 +68,7 @@ const Home: NextPage<Props> = ({ fallback, id }) => {
       fallback: fallback.collection,
     }
   )
+
   const collection =
     collectionResponse.data && collectionResponse.data[0]
       ? collectionResponse.data[0]
@@ -87,31 +88,7 @@ const Home: NextPage<Props> = ({ fallback, id }) => {
   if (!CHAIN_ID) return null
 
   const tokenCount = stats?.data?.stats?.tokenCount ?? 0
-
-  const title = metaTitle ? (
-    <title>{metaTitle}</title>
-  ) : (
-    <title>{collection?.name}</title>
-  )
-  const description = metaDescription ? (
-    <meta name="description" content={metaDescription} />
-  ) : (
-    <meta name="description" content={collection?.description as string} />
-  )
-
   const bannerImage = (envBannerImage || collection?.banner) as string
-
-  const image = metaImage ? (
-    <>
-      <meta name="twitter:image" content={metaImage} />
-      <meta name="og:image" content={metaImage} />
-    </>
-  ) : (
-    <>
-      <meta name="twitter:image" content={bannerImage} />
-      <meta property="og:image" content={bannerImage} />
-    </>
-  )
 
   const tabs = [
     { name: 'Items', id: 'items' },
@@ -122,9 +99,10 @@ const Home: NextPage<Props> = ({ fallback, id }) => {
     <Layout navbar={{}}>
       <>
         <Head>
-          {title}
-          {description}
-          {image}
+          <title>{metaTitle ? metaTitle : collection?.name}</title>
+          <meta name="description" content={metaDescription ? metaDescription : collection?.description as string} />
+          <meta name="twitter:image" content={metaImage ? metaImage : bannerImage} />
+          <meta property="og:image" content={metaImage ? metaImage : bannerImage} />
         </Head>
         <Hero collectionId={id} fallback={fallback} />
         <Tabs.Root
