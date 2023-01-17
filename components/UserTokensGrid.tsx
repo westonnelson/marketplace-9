@@ -1,39 +1,22 @@
 import { FC, useEffect } from 'react'
 import LoadingCard from './LoadingCard'
-import { useUserTokens } from '@reservoir0x/reservoir-kit-ui'
+// import { useUserTokens } from '@reservoir0x/reservoir-kit-ui'
 import { useInView } from 'react-intersection-observer'
 import TokenCard from './TokenCard'
-import { paths } from '@reservoir0x/reservoir-sdk'
-
-const COLLECTION = process.env.NEXT_PUBLIC_COLLECTION
-const COMMUNITY = process.env.NEXT_PUBLIC_COMMUNITY
-const COLLECTION_SET_ID = process.env.NEXT_PUBLIC_COLLECTION_SET_ID
+import useNFTBalance from '../hooks/useNFTBalance'
 
 type Props = {
   fallback: {
-    tokens: paths['/users/{user}/tokens/v6']['get']['responses']['200']['schema']
+    tokens: any
   }
   owner: string
 }
 
 const UserTokensGrid: FC<Props> = ({ fallback, owner }) => {
-  const userTokensParams: Parameters<typeof useUserTokens>['1'] = {
+  const userTokens = useNFTBalance(owner, {
     limit: 20,
-    normalizeRoyalties: true,
-  }
-  if (COLLECTION_SET_ID) {
-    userTokensParams.collectionsSetId = COLLECTION_SET_ID
-  } else {
-    if (COMMUNITY) userTokensParams.community = COMMUNITY
-  }
-
-  if (COLLECTION && (!COMMUNITY || !COLLECTION_SET_ID)) {
-    userTokensParams.collection = COLLECTION
-  }
-  const userTokens = useUserTokens(owner, userTokensParams, {
-    fallbackData: [fallback.tokens],
     revalidateOnMount: false,
-  })
+  });
 
   useEffect(() => {
     userTokens.mutate()
@@ -71,23 +54,27 @@ const UserTokensGrid: FC<Props> = ({ fallback, owner }) => {
         ? Array(10)
             .fill(null)
             .map((_, index) => <LoadingCard key={`loading-card-${index}`} />)
-        : tokens?.map((token) => (
+        : tokens?.map((token: any) => (
             <TokenCard
               token={{
                 token: {
-                  contract: token?.token?.contract || '',
-                  tokenId: token?.token?.tokenId || '',
-                  owner,
-                  ...token?.token,
+                  ...token,
+                  contract: token?.contract_address || '',
+                  tokenId: token?.token_id || '',
+                  owner: token?.owners?.[0].owner_address,
+                  collection: {
+                    id: token?.contract_address,
+                    ...token?.collection
+                  }
                 },
                 market: {
                   floorAsk: { ...token?.ownership?.floorAsk },
-                  topBid: { ...token?.token?.topBid },
+                  topBid: { ...token?.topBid },
                 },
               }}
-              key={`${token?.token?.contract}${token?.token?.tokenId}`}
+              key={`${token?.contract_address}${token?.token_id}`}
               mutate={mutate}
-              collectionImage={token?.token?.collection?.imageUrl}
+              collectionImage={token?.collection?.image_url}
             />
           ))}
       {isFetchingPage ? (
