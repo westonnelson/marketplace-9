@@ -6,7 +6,7 @@ import {
   useDisconnect,
   // useEnsAvatar,
   // useEnsName,
-  // Address,
+  Address,
 } from 'wagmi'
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import Link from 'next/link'

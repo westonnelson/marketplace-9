@@ -215,7 +215,7 @@ const Hero: FC<Props> = ({ fallback, collectionId }) => {
                 className="relative overflow-hidden transition-[max-height] ease-in-out md:w-[423px]"
                 style={{ maxHeight: descriptionHeight }}
               >
-                <p
+                <div
                   ref={descriptionRef}
                   className="text-center text-sm text-[#262626] transition-[width] duration-300 ease-in-out dark:text-white"
                 >
@@ -225,7 +225,7 @@ const Hero: FC<Props> = ({ fallback, collectionId }) => {
                   >
                     {header.description}
                   </ReactMarkdown>
-                </p>
+                </div>
               </div>
               {isLongDescription && (
                 <a
