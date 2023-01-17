@@ -327,7 +327,7 @@ const ActivityTableRow: FC<ActivityTableRowProps> = ({ activity }) => {
             </span>
           </div>
           <div className="flex items-center justify-between">
-            <Link href={href} passHref legacyBehavior={true} passHref>
+            <Link href={href} legacyBehavior={true} passHref>
               <a className="flex items-center">
                 <Image
                   className="rounded object-cover"
@@ -435,7 +435,7 @@ const ActivityTableRow: FC<ActivityTableRowProps> = ({ activity }) => {
         </div>
       </td>
       <td className="px-6 py-4">
-        <Link href={href} passHref legacyBehavior={true} passHref>
+        <Link href={href} legacyBehavior={true} passHref>
           <a className="mr-2.5 flex items-center">
             <Image
               className="rounded object-cover"
