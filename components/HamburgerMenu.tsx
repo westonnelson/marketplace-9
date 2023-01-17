@@ -9,8 +9,8 @@ import {
   useAccount,
   useConnect,
   useDisconnect,
-  useEnsAvatar,
-  useEnsName,
+  // useEnsAvatar,
+  // useEnsName,
 } from 'wagmi'
 import { Balance } from './ConnectWallet'
 import EthAccount from './EthAccount'
@@ -23,13 +23,19 @@ type Props = {
   }[]
 }
 
+const CHAIN_ID = process.env.NEXT_PUBLIC_CHAIN_ID || 1
+
 const HamburgerMenu: FC<Props> = ({ externalLinks }) => {
   const [open, setOpen] = useState(false)
-  const { connectors } = useConnect()
+  const { connectors } = useConnect({ chainId: +CHAIN_ID })
   const accountData = useAccount()
   const { disconnect } = useDisconnect()
-  const { data: ensName } = useEnsName()
-  const { data: ensAvatar } = useEnsAvatar()
+  // const { data: ensName } = useEnsName({
+  //   chainId: 1
+  // })
+  // const { data: ensAvatar } = useEnsAvatar({
+  //   chainId: 1
+  // })
   const wallet = connectors[0]
 
   const hasExternalLinks = externalLinks.length > 0
@@ -61,8 +67,8 @@ const HamburgerMenu: FC<Props> = ({ externalLinks }) => {
               <EthAccount
                 address={accountData.address}
                 ens={{
-                  avatar: ensAvatar,
-                  name: ensName,
+                  avatar: undefined,
+                  name: undefined,
                 }}
               />
             </div>

@@ -9,9 +9,9 @@ import { useRouter } from 'next/router'
 import {
   useAccount,
   useNetwork,
-  useEnsName,
-  useEnsAvatar,
-  Address,
+  // useEnsName,
+  // useEnsAvatar,
+  // Address,
 } from 'wagmi'
 import * as Tabs from '@radix-ui/react-tabs'
 import { toggleOnItem } from 'lib/router'
@@ -50,20 +50,22 @@ const Address: NextPage<Props> = ({ address, fallback }) => {
   if (!address) {
     throw 'No address set'
   }
-
-  const { data: ensAvatar } = useEnsAvatar({
-    address: address as Address,
-  })
-
-  const { data: ensName } = useEnsName({
-    address: address as Address,
-    onSettled(data, error) {
-      console.log('Settled', { data, error })
-    },
-    onError(error) {
-      console.log('Error', error)
-    },
-  })
+  //
+  // const { data: ensAvatar } = useEnsAvatar({
+  //   chainId: 1,
+  //   address: address as Address,
+  // })
+  //
+  // const { data: ensName } = useEnsName({
+  //   chainId: 1,
+  //   address: address as Address,
+  //   onSettled(data, error) {
+  //     console.log('Settled', { data, error })
+  //   },
+  //   onError(error) {
+  //     console.log('Error', error)
+  //   },
+  // })
   const { chain: activeChain } = useNetwork()
   const collections = useSearchCommunity()
   let collectionIds: undefined | string[] = undefined
@@ -121,17 +123,12 @@ const Address: NextPage<Props> = ({ address, fallback }) => {
         <div className="mt-4 mb-4 w-full px-4 md:px-16">
           <div className="flex">
             {address && (
-              <Avatar address={address} avatar={ensAvatar} size={80} />
+              <Avatar address={address} avatar={undefined} size={80} />
             )}
             <div className="ml-4 flex flex-col justify-center">
               <p className="reservoir-h6 text-xl font-semibold dark:text-white">
-                {ensName || formattedAddress}
+                {formattedAddress}
               </p>
-              {ensName && (
-                <p className="reservoir-label text-md font-semibold opacity-60">
-                  {formattedAddress}
-                </p>
-              )}
             </div>
           </div>
         </div>

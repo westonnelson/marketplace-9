@@ -4,9 +4,9 @@ import {
   useBalance,
   useConnect,
   useDisconnect,
-  useEnsAvatar,
-  useEnsName,
-  Address,
+  // useEnsAvatar,
+  // useEnsName,
+  // Address,
 } from 'wagmi'
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import Link from 'next/link'
@@ -24,10 +24,10 @@ const CHAIN_ID = process.env.NEXT_PUBLIC_CHAIN_ID || 1
 
 const ConnectWallet: FC = () => {
   const account = useAccount()
-  const { data: ensAvatar } = useEnsAvatar({ address: account?.address })
-  const { data: ensName } = useEnsName({ address: account?.address })
-  const { connectors } = useConnect()
-  const { disconnect } = useDisconnect()
+  // const { data: ensAvatar } = useEnsAvatar({ chainId: 1, address: account?.address })
+  // const { data: ensName } = useEnsName({ chainId: 1, address: account?.address })
+  const { connectors } = useConnect({ chainId: +CHAIN_ID })
+  const { disconnect } = useDisconnect( )
   const wallet = connectors[0]
   const isMounted = useMounted()
 
@@ -45,7 +45,7 @@ const ConnectWallet: FC = () => {
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger className="btn-primary-outline ml-auto rounded-full border-transparent p-0 normal-case dark:border-neutral-600 dark:bg-neutral-900 dark:ring-primary-900 dark:focus:ring-4">
-        <Avatar address={account.address} avatar={ensAvatar} size={40} />
+        <Avatar address={account.address} avatar={undefined} size={40} />
       </DropdownMenu.Trigger>
 
       <DropdownMenu.Content align="end" sideOffset={6}>
@@ -55,11 +55,7 @@ const ConnectWallet: FC = () => {
           }`}
         >
           <div className="group flex w-full items-center justify-between rounded px-4 py-3 outline-none transition">
-            {ensName ? (
-              <span>{truncateEns(ensName)}</span>
-            ) : (
-              <span>{truncateAddress(account.address || '')}</span>
-            )}
+            <span>{truncateAddress(account.address || '')}</span>
           </div>
           <div className="group flex w-full items-center justify-between rounded px-4 py-3 outline-none transition">
             <span>Balance </span>

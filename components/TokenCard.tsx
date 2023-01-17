@@ -150,9 +150,18 @@ const TokenCard: FC<Props> = ({
         <div className="flex items-center justify-between">
           <div
             className="reservoir-subtitle mb-3 overflow-hidden truncate px-4 pt-4 dark:text-white lg:pt-3"
-            title={token?.token?.name || token?.token?.tokenId}
+            title={token?.token?.name || `${token?.token?.collection?.name} ${token?.token?.tokenId}`}
           >
-            {token?.token?.name || `#${token?.token?.tokenId}`}
+            <div>
+              <Link href={`/collections/${token?.token?.collection?.id}`} legacyBehavior={true}>
+                <a className="inline-flex items-center gap-2 mb-2">
+                  <span className="text-xs dark:text-white">
+                    {token?.token?.collection?.name}
+                  </span>
+                </a>
+              </Link>
+            </div>
+            {token?.token?.name || `${token?.token?.collection?.name} #${token?.token?.tokenId}`}
           </div>
           {collectionSize &&
             collectionAttributes &&

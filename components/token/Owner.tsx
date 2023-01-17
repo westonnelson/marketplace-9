@@ -34,8 +34,8 @@ const Owner: FC<Props> = ({ details, bannedOnOpenSea, collection }) => {
               className="h-9 w-9 rounded-full"
             />
             <span className="reservoir-h6 font-headings dark:text-white">
-            {token?.collection?.name}
-          </span>
+              {token?.collection?.name}
+            </span>
           </a>
         </Link>
         {token?.rarityRank &&
