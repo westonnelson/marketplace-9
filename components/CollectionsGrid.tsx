@@ -60,6 +60,7 @@ const CollectionsGrid: FC<Props> = ({ collections }) => {
                 key={`${collection?.name}${idx}`}
                 href={`/collections/${collection?.id}`}
                 legacyBehavior={true}
+                passHref
               >
                 <a className="group mb-6 block transform-gpu overflow-hidden rounded-[16px] border border-[#D4D4D4] bg-white p-3 transition ease-in hover:-translate-y-0.5 hover:scale-[1.01] hover:shadow-lg hover:ease-out dark:border-0 dark:bg-neutral-800 dark:ring-1 dark:ring-neutral-600">
                   <ImagesGrid
@@ -74,7 +75,7 @@ const CollectionsGrid: FC<Props> = ({ collections }) => {
                         alt="Collection Image"
                       />
                     ) : (
-                      <div className="h-12 w-12 flex-none rounded-full bg-gradient-to-br from-primary-500 to-primary-900"></div>
+                      <div className="h-12 w-12 flex-none rounded-full bg-gradient-to-br from-primary-500 to-primary-900"/>
                     )}
 
                     <div className="reservoir-subtitle dark:text-white">

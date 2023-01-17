@@ -8,24 +8,24 @@ const Footer = () => {
     return (
       <footer className="col-span-full flex flex-col items-center justify-between px-6 pb-12 sm:flex-row md:px-16">
         <div className="mb-6 flex flex-row flex-wrap items-center justify-between gap-x-6 text-xs sm:mb-0 sm:gap-x-8 sm:text-sm">
-          <Link href="/privacy" legacyBehavior={true}>
+          <Link href="/privacy" legacyBehavior={true} passHref>
             <a className="min-w-max">
               Privacy Policy
             </a>
           </Link>
-          <Link href="/terms" legacyBehavior={true}>
+          <Link href="/terms" legacyBehavior={true} passHref>
             <a className="min-w-max">
               Terms of Use
             </a>
           </Link>
         </div>
         <div className="flex flex-row items-center gap-x-6">
-          <Link href="https://twitter.com/NFTEarth_L2" legacyBehavior={true}>
+          <Link href="https://twitter.com/NFTEarth_L2" legacyBehavior={true} passHref>
             <a className="" target="_blank" rel="noreferrer">
               <FaTwitter className="h-[20px] w-[25px]" />
             </a>
           </Link>
-          <Link href="https://discord.gg/nftearth" className="ml-5" legacyBehavior={true}>
+          <Link href="https://discord.gg/nftearth" className="ml-5" legacyBehavior={true} passHref>
             <a className="" target="_blank" rel="noreferrer">
               <FaDiscord className="h-[19px] w-[25px]" />
             </a>

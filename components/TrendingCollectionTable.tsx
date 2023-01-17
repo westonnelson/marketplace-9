@@ -107,7 +107,7 @@ const TrendingCollectionTable: FC<Props> = ({ fallback, alternate }) => {
                   <div className="reservoir-h6 mr-6 dark:text-white">
                     {index + 1}
                   </div>
-                  <Link href={tokenHref} legacyBehavior={true}>
+                  <Link href={tokenHref} legacyBehavior={true} passHref>
                     <a className="flex items-center gap-2">
                       <img
                         src={optimizeImage(image || 'https://via.placeholder.com/140', 140)}
@@ -190,7 +190,7 @@ const TrendingCollectionTable: FC<Props> = ({ fallback, alternate }) => {
       )}
 
       {alternate && (
-        <Link href="/stats" legacyBehavior={true}>
+        <Link href="/stats" legacyBehavior={true} passHref>
           <a
             className="btn-primary-outline gap-1 rounded-full border-transparent bg-gray-100 w-[200px] normal-case focus:ring-0 dark:border-neutral-600 dark:bg-neutral-900 dark:ring-primary-900 dark:focus:ring-4"
           >
