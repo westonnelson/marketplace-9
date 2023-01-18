@@ -69,8 +69,8 @@ const Home: NextPage<Props> = ({ fallback }) => {
               </a>
             </Link>
             <div>
-              <h2>Buy & Sell NFTs</h2>
-              <p>NFTEarth is the web3 NFT Marketplace for Layer2 community.</p>
+              <h2>Buy & Sell NFTs on L2</h2>
+              <p>Trade digital collectibles on Layer2 at NFTEarth</p>
             </div>
           </div>
         </div>

@@ -22,7 +22,7 @@ const Terms = () => {
       </header>
       <div className='col-span-full px-6 md:px-16 mb-10'>
         <div className='mb-9 flex w-full flex-col justify-between'>
-          {`Thank you for being part of our community at Layer2DAO, doing business as NFTEarth (“NFTEarth,“ “we,“ “us,“ or “our“). Your privacy is important to us. It is NFTEarth's policy to respect your privacy and comply with any applicable law and regulation regarding any personal information we may collect about you, including across our website, qx.app, and other sites we own and operate.`}
+          {`Thank you for being part of our community at Layer2NFTs, doing business as NFTEarth (“NFTEarth,“ “we,“ “us,“ or “our“). Your privacy is important to us. It is NFTEarth's policy to respect your privacy and comply with any applicable law and regulation regarding any personal information we may collect about you, including across our website, qx.app, and other sites we own and operate.`}
           <br/><br/>
           {`Personal information is any information about you which can be used to identify you. This includes information about you as a person (such as name, address, and date of birth), your devices, payment details, and even information about how you use a website or online service.`}
           <br/><br/>
@@ -142,8 +142,8 @@ const Terms = () => {
           </p>
           <br/>
           <p>
-            Weston Nelson<br/>
-            <a href="https://twitter.com/westonnelson" target="_blank" rel="noreferrer noopener">@westonnelson</a>
+            NFTEarth<br/>
+            <a href="https://twitter.com/NFTEarth_L2" target="_blank" rel="noreferrer noopener">@NFTEarth_L2</a>
           </p>
         </div>
       </div>
