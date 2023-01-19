@@ -56,7 +56,7 @@ const NavbarLogo: FC<Props> = ({ variant, className }) => {
         </span>
         {chain?.testnet && (
           <div
-            className={`reservoir-tiny inline rounded-[4px] bg-[#EFC45C] p-1 py-[2px]
+            className={`reservoir-tiny inline rounded-[4px] bg-[#ef5c5c] p-1 py-[2px]
           ${
             !variant || desktopVariant
               ? 'md:absolute md:left-[-50px] md:bottom-[8px]'

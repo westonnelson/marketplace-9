@@ -69,20 +69,20 @@ const Home: NextPage<Props> = ({ fallback }) => {
               </a>
             </Link>
             <div>
-              <h2>Buy & Sell NFTs on L2</h2>
-              <p>Trade digital collectibles on Layer2 at NFTEarth</p>
+              <h2>Layer2 NFTs</h2>
+              <p>Buy and Sell NFTs on L2</p>
             </div>
           </div>
         </div>
         <div className="mb-9 flex w-full items-center justify-between mt-[60px]">
           <div className="reservoir-h4 dark:text-white">
-            Top Collection
+            Top Collections
           </div>
         </div>
         <CustomCollectionsGrid collections={fallback.trendingCollections} />
         <div className="mb-9 flex w-full items-center justify-between mt-[40px]">
           <div className="reservoir-h4 dark:text-white">
-            Trending Collection
+            Trending Collections
           </div>
         </div>
         <CustomCollectionsGrid collections={fallback.topCollections} />

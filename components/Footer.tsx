@@ -10,12 +10,12 @@ const Footer = () => {
         <div className="mb-6 flex flex-row flex-wrap items-center justify-between gap-x-6 text-xs sm:mb-0 sm:gap-x-8 sm:text-sm">
           <Link href="/privacy" legacyBehavior={true} passHref>
             <a className="min-w-max">
-              Privacy Policy
+              Privacy
             </a>
           </Link>
           <Link href="/terms" legacyBehavior={true} passHref>
             <a className="min-w-max">
-              Terms of Use
+              Terms
             </a>
           </Link>
         </div>
