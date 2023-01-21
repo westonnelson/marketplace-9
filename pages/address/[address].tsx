@@ -9,9 +9,6 @@ import { useRouter } from 'next/router'
 import {
   useAccount,
   useNetwork,
-  // useEnsName,
-  // useEnsAvatar,
-  // Address,
 } from 'wagmi'
 import * as Tabs from '@radix-ui/react-tabs'
 import { toggleOnItem } from 'lib/router'
@@ -28,6 +25,7 @@ import { truncateAddress } from 'lib/truncateText'
 import { paths, setParams } from '@reservoir0x/reservoir-sdk'
 import UserActivityTab from 'components/tables/UserActivityTab'
 import useMounted from 'hooks/useMounted'
+import useENSResolver from '../../hooks/useENSResolver'
 
 const CHAIN_ID = process.env.NEXT_PUBLIC_CHAIN_ID
 const COLLECTION = process.env.NEXT_PUBLIC_COLLECTION
@@ -50,22 +48,12 @@ const Address: NextPage<Props> = ({ address, fallback }) => {
   if (!address) {
     throw 'No address set'
   }
-  //
-  // const { data: ensAvatar } = useEnsAvatar({
-  //   chainId: 1,
-  //   address: address as Address,
-  // })
-  //
-  // const { data: ensName } = useEnsName({
-  //   chainId: 1,
-  //   address: address as Address,
-  //   onSettled(data, error) {
-  //     console.log('Settled', { data, error })
-  //   },
-  //   onError(error) {
-  //     console.log('Error', error)
-  //   },
-  // })
+
+  const {
+    avatar: ensAvatar,
+    shortAddress,
+    shortName: shortEnsName,
+  } = useENSResolver(address);
   const { chain: activeChain } = useNetwork()
   const collections = useSearchCommunity()
   let collectionIds: undefined | string[] = undefined
@@ -96,7 +84,6 @@ const Address: NextPage<Props> = ({ address, fallback }) => {
 
   const isInTheWrongNetwork = activeChain?.id !== +CHAIN_ID
   const isOwner = address?.toLowerCase() === accountData?.address?.toLowerCase()
-  const formattedAddress = truncateAddress(address as string)
 
   let tabs = [
     { name: 'Tokens', id: 'portfolio' },
@@ -123,12 +110,17 @@ const Address: NextPage<Props> = ({ address, fallback }) => {
         <div className="mt-4 mb-4 w-full px-4 md:px-16">
           <div className="flex">
             {address && (
-              <Avatar address={address} avatar={undefined} size={80} />
+              <Avatar address={address} avatar={ensAvatar} size={80} />
             )}
             <div className="ml-4 flex flex-col justify-center">
               <p className="reservoir-h6 text-xl font-semibold dark:text-white">
-                {formattedAddress}
+                {shortEnsName || shortAddress}
               </p>
+              {shortEnsName && (
+                <p className="reservoir-label text-md font-semibold opacity-60">
+                  {shortAddress}
+                </p>
+              )}
             </div>
           </div>
         </div>
