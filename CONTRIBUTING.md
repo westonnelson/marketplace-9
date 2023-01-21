@@ -2,11 +2,11 @@
 
 ### Communication Channels
 
-For open discussions, we encourage you to use [Discord](https://discord.gg/j5K9fESNwh)
+For open discussions, we encourage you to use [Discord](https://discord.gg/nftearth)
 
 ### Notice a bug?
 
-If you find a bug while working with the marketplace, you can help us by submitting an issue [here](https://github.com/reservoirprotocol/marketplace/issues). Additionally you can follow the steps below to open a pull request that fixes the issue.
+If you find a bug while working with the marketplace, you can help us by submitting an issue [here](https://github.com/NFTEarth/nftearth-exchangev1/issues). Additionally you can follow the steps below to open a pull request that fixes the issue.
 
 Before you open an issue please ensure that there's no existing issue that's either closed or open. There may already be an issue that addresses the bug you've encountered.
 
