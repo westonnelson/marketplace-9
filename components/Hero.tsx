@@ -99,7 +99,7 @@ const Hero: FC<Props> = ({ fallback, collectionId }) => {
     topOffer: collection?.topBid?.price?.amount?.decimal,
     topOfferCurrency: collection?.topBid?.price?.currency,
     topOfferSource: collection?.topBid?.sourceDomain,
-    floor: collection?.floorAsk?.price?.amount?.native,
+    floor: stats?.data?.stats?.market?.floorAsk?.price?.amount?.native,
     allTime: collection?.volume?.allTime,
     volumeChange: collection?.volumeChange?.['1day'],
     floorChange: collection?.floorSaleChange?.['1day'],
