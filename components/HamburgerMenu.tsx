@@ -66,7 +66,7 @@ const HamburgerMenu: FC<Props> = ({ externalLinks }) => {
                 address={accountData.address}
                 ens={{
                   avatar: ensAvatar,
-                  name: ensName,
+                  name: shortEnsName,
                 }}
               />
             </div>
