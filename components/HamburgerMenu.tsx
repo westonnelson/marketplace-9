@@ -13,6 +13,7 @@ import {
 import { Balance } from './ConnectWallet'
 import EthAccount from './EthAccount'
 import ThemeSwitcher from './ThemeSwitcher'
+import useENSResolver from '../hooks/useENSResolver'
 
 type Props = {
   externalLinks: {
