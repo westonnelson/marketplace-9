@@ -21,5 +21,9 @@ export default function useSearchCommunity() {
 
   const href = setParams(pathname, query)
 
-  return useSWR<paths['/search/collections/v1']['get']['responses']['200']['schema']>(href, fetcher)
+  const collections = useSWR<
+    paths['/search/collections/v1']['get']['responses']['200']['schema']
+  >(href, fetcher)
+
+  return collections
 }

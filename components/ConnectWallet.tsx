@@ -4,8 +4,6 @@ import {
   useBalance,
   useConnect,
   useDisconnect,
-  // useEnsAvatar,
-  // useEnsName,
   Address,
 } from 'wagmi'
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
@@ -14,8 +12,8 @@ import { HiOutlineLogout } from 'react-icons/hi'
 import FormatNativeCrypto from './FormatNativeCrypto'
 import ConnectWalletButton from 'components/ConnectWalletButton'
 import useMounted from 'hooks/useMounted'
+import useENSResolver from '../hooks/useENSResolver'
 import Avatar from './Avatar'
-import { truncateAddress, truncateEns } from 'lib/truncateText'
 
 const DARK_MODE = process.env.NEXT_PUBLIC_DARK_MODE
 const DISABLE_POWERED_BY_RESERVOIR =
@@ -24,8 +22,11 @@ const CHAIN_ID = process.env.NEXT_PUBLIC_CHAIN_ID || 1
 
 const ConnectWallet: FC = () => {
   const account = useAccount()
-  // const { data: ensAvatar } = useEnsAvatar({ chainId: 1, address: account?.address })
-  // const { data: ensName } = useEnsName({ chainId: 1, address: account?.address })
+  const {
+    avatar: ensAvatar,
+    shortAddress,
+    shortName: shortEnsName,
+  } = useENSResolver(account?.address);
   const { connectors } = useConnect({ chainId: +CHAIN_ID })
   const { disconnect } = useDisconnect( )
   const wallet = connectors[0]
@@ -45,7 +46,7 @@ const ConnectWallet: FC = () => {
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger className="btn-primary-outline ml-auto rounded-full border-transparent p-0 normal-case dark:border-neutral-600 dark:bg-neutral-900 dark:ring-primary-900 dark:focus:ring-4">
-        <Avatar address={account.address} avatar={undefined} size={40} />
+        <Avatar address={account.address} avatar={ensAvatar} size={40} />
       </DropdownMenu.Trigger>
 
       <DropdownMenu.Content align="end" sideOffset={6}>
@@ -55,7 +56,11 @@ const ConnectWallet: FC = () => {
           }`}
         >
           <div className="group flex w-full items-center justify-between rounded px-4 py-3 outline-none transition">
-            <span>{truncateAddress(account.address || '')}</span>
+            {shortEnsName ? (
+              <span>{shortEnsName}</span>
+            ) : (
+              <span>{shortAddress}</span>
+            )}
           </div>
           <div className="group flex w-full items-center justify-between rounded px-4 py-3 outline-none transition">
             <span>Balance </span>

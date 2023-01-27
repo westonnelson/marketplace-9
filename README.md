@@ -36,6 +36,6 @@ If you'd like to contribute please follow the [guidelines](https://github.com/re
 
 Twitter: [@NFTEarth](https://twitter.com/NFTEarth_L2)
 Discord: [Discord](https://discord.gg/nftearth)
-Project Link: [NFTEArth](https://nftearth.exchange)
+App: [NFTEarth](https://nftearth.exchange)
 
 <p align="right">(<a href="#top">back to top</a>)</p>

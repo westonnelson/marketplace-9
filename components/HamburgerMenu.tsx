@@ -9,12 +9,11 @@ import {
   useAccount,
   useConnect,
   useDisconnect,
-  // useEnsAvatar,
-  // useEnsName,
 } from 'wagmi'
 import { Balance } from './ConnectWallet'
 import EthAccount from './EthAccount'
 import ThemeSwitcher from './ThemeSwitcher'
+import useENSResolver from '../hooks/useENSResolver'
 
 type Props = {
   externalLinks: {
@@ -30,12 +29,11 @@ const HamburgerMenu: FC<Props> = ({ externalLinks }) => {
   const { connectors } = useConnect({ chainId: +CHAIN_ID })
   const accountData = useAccount()
   const { disconnect } = useDisconnect()
-  // const { data: ensName } = useEnsName({
-  //   chainId: 1
-  // })
-  // const { data: ensAvatar } = useEnsAvatar({
-  //   chainId: 1
-  // })
+  const {
+    avatar: ensAvatar,
+    shortAddress,
+    shortName: shortEnsName,
+  } = useENSResolver(accountData.address);
   const wallet = connectors[0]
 
   const hasExternalLinks = externalLinks.length > 0
@@ -67,8 +65,8 @@ const HamburgerMenu: FC<Props> = ({ externalLinks }) => {
               <EthAccount
                 address={accountData.address}
                 ens={{
-                  avatar: undefined,
-                  name: undefined,
+                  avatar: ensAvatar,
+                  name: shortEnsName,
                 }}
               />
             </div>

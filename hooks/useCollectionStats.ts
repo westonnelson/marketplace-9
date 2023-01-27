@@ -40,13 +40,17 @@ export default function useCollectionStats(
       })
     }
 
-    return setParams(pathname, { ...query, ...query2 })
+    const href = setParams(pathname, { ...query, ...query2 })
+
+    return href
   }
 
   const href = getUrl()
 
-  return useSWR<paths['/stats/v2']['get']['responses']['200']['schema']>(
+  const stats = useSWR<paths['/stats/v2']['get']['responses']['200']['schema']>(
     href,
     fetcher
   )
+
+  return stats
 }
