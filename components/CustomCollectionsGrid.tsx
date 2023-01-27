@@ -50,7 +50,7 @@ const CollectionsGrid: FC<Props> = ({ collections }) => {
             .map((collection: any, idx: number) => (
               <Link
                 key={`${collection?.name}${idx}`}
-                href={`/collections/${collection?.id}`}
+                href={`/collections/${idx}`}
                 legacyBehavior={true}
                 passHref
               >
@@ -60,9 +60,9 @@ const CollectionsGrid: FC<Props> = ({ collections }) => {
                     value={collection?.name || ''}
                   />
                   <div className="mt-3 flex items-center gap-2">
-                    {(collection?.image || false) ? (
+                    {(collection?.image_url || false) ? (
                       <img
-                        src={optimizeImage(collection?.image, 80)}
+                        src={optimizeImage(collection?.image_url, 80)}
                         className="h-12 w-12 rounded-full"
                         alt="Collection Image"
                       />

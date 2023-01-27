@@ -17,6 +17,8 @@ import Link from 'next/link'
 // REQUIRED
 const CHAIN_ID = process.env.NEXT_PUBLIC_CHAIN_ID
 const RESERVOIR_API_BASE = process.env.NEXT_PUBLIC_RESERVOIR_API_BASE
+const SIMPLEHASH_API_BASE = process.env.NEXT_PUBLIC_SIMPLEHASH_API_BASE;
+const SIMPLEHASH_API_KEY = process.env.NEXT_PUBLIC_SIMPLEHASH_API_KEY;
 
 // OPTIONAL
 const RESERVOIR_API_KEY = process.env.NEXT_PUBLIC_RESERVOIR_API_KEY
@@ -79,12 +81,6 @@ const Home: NextPage<Props> = ({ fallback }) => {
             Top Collections
           </div>
         </div>
-        <CustomCollectionsGrid collections={fallback.trendingCollections} />
-        <div className="mb-9 flex w-full items-center justify-between mt-[40px]">
-          <div className="reservoir-h4 dark:text-white">
-            Trending Collections
-          </div>
-        </div>
         <CustomCollectionsGrid collections={fallback.topCollections} />
       </div>
       <Footer />
@@ -96,49 +92,27 @@ export default Home
 
 export const getStaticProps: GetStaticProps<{
   fallback: {
-    topCollections: paths['/collections/v5']['get']['responses']['200']['schema'],
-    trendingCollections: paths['/collections/v5']['get']['responses']['200']['schema']
+    topCollections: any
   }
 }> = async () => {
   const options: RequestInit | undefined = {}
 
-  if (RESERVOIR_API_KEY) {
-    options.headers = {
-      'x-api-key': RESERVOIR_API_KEY,
+  const collectionIds = [
+    // placeholder
+    "0x8dbc32a6a29c1398184256a83553d038ae74db62"
+  ]
+
+  const topCollections = await Promise.all(collectionIds.map(id => fetch(`${SIMPLEHASH_API_BASE}/api/v0/nfts/collections/optimism/${id}`, {
+    // @ts-ignore
+    headers: {
+      'X-API-KEY': SIMPLEHASH_API_KEY
     }
-  }
-
-  const url = new URL('/collections/v5', RESERVOIR_API_BASE)
-
-  let query: paths['/collections/v5']['get']['parameters']['query'] = {
-    limit: 8,
-    sortBy: '1DayVolume',
-    normalizeRoyalties: true,
-  }
-
-  let query2: paths['/collections/v5']['get']['parameters']['query'] = {
-    limit: 8,
-    sortBy: 'allTimeVolume',
-    normalizeRoyalties: true,
-  }
-
-  if (COLLECTION && !COMMUNITY) query.contract = [COLLECTION]
-  if (COMMUNITY) query.community = COMMUNITY
-  if (COLLECTION_SET_ID) query.collectionsSetId = COLLECTION_SET_ID
-
-  const href = setParams(url, query)
-  const href2 = setParams(url, query2)
-
-  const res = await fetch(href, options)
-  const res2 = await fetch(href2, options)
-
-  const trendingCollections = (await res.json()) as Props['fallback']['trendingCollections']
-  const topCollections = (await res2.json()) as Props['fallback']['topCollections']
+  })
+    .then(res => res.json())));
 
   return {
     props: {
       fallback: {
-        trendingCollections,
         topCollections
       },
     },
