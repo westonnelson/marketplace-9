@@ -98,8 +98,14 @@ export const getStaticProps: GetStaticProps<{
   const options: RequestInit | undefined = {}
 
   const collectionIds = [
-    // placeholder
-    "0x8dbc32a6a29c1398184256a83553d038ae74db62"
+    "0x9B9F542456ad12796cCB8EB6644f29E3314e68e1",
+    "0x0deaAc29d8A3d4EbBAAa3eCd3cC97C9deF00f720",
+    "0x66Deb6cC4d65dc9CB02875DC5E8751d71Fa5D50E",
+    "0xb8df6cc3050cc02f967db1ee48330ba23276a492",
+    "0x1ff8382e43f5cb5064044c2833ca4f1070da5d51",
+    "0x8dbc32a6A29C1398184256a83553d038Ae74dB62",
+    "0x8E56343adAFA62DaC9C9A8ac8c742851B0fb8b03",
+    "0x5c9D55b78FEBCC2061715BA4f57EcF8EA2711F2c"
   ]
 
   const topCollections = await Promise.all(collectionIds.map(id => fetch(`${SIMPLEHASH_API_BASE}/api/v0/nfts/collections/optimism/${id}`, {
