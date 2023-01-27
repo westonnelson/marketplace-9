@@ -71,8 +71,8 @@ const Home: NextPage<Props> = ({ fallback }) => {
               </a>
             </Link>
             <div>
-              <h2>Layer2 NFTs</h2>
-              <p>Buy and Sell NFTs on L2</p>
+              <h2>Buy and Sell NFTs on L2</h2>
+              <p>NFTEarth</p>
             </div>
           </div>
         </div>

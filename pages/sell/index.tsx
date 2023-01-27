@@ -19,7 +19,7 @@ const Sell: NextPage = () => {
       <div className="item-center col-span-full mx-auto flex w-screen max-w-[1500px] flex-col px-4 py-8 sm:px-12 md:py-16">
         {isConnected ? (
           <>
-            <h1 className="mb-11 text-[32px] font-semibold">Sell your items</h1>
+            <h1 className="mb-11 text-[32px] font-semibold">Sell you NFTs</h1>
             <SellTable
               isOwner={false}
               address={address}
@@ -41,8 +41,7 @@ const Sell: NextPage = () => {
               className="hidden dark:block"
             />
             <p className="max-w-[310px] dark:text-white">
-              Connect wallet to accept the best offers from all major
-              marketplaces.
+              Connect wallet to accept offers.
             </p>
             <ConnectWalletButton>
               <span className="w-40">Connect Wallet</span>
