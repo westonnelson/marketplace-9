@@ -51,14 +51,14 @@ const TrendingCollectionTable: FC<Props> = ({ fallback, alternate }) => {
 
   return (
     <div className="mb-11 overflow-x-auto overflow-y-hidden">
-      <table className="mb-2 min-w-full table-auto">
+      <table className="mb-2 min-w-full table-auto rounded-[14px] overflow-hidden">
         <thead>
           <tr>
             {columns.map((item) => (
               <th
                 key={item}
                 scope="col"
-                className="reservoir-subtitle px-6 py-3 text-left dark:text-white"
+                className="reservoir-subtitle px-6 py-3 text-left bg-primary-900 dark:text-black"
               >
                 {item}
               </th>
@@ -100,7 +100,7 @@ const TrendingCollectionTable: FC<Props> = ({ fallback, alternate }) => {
                   (FOOTER_ENABLED && !expanded && index == 9)
                     ? ''
                     : 'border-b'
-                } group h-[88px] border-neutral-300 dark:border-neutral-600 dark:text-white`}
+                } group h-[88px] border-neutral-300 dark:border-neutral-600 dark:text-white bg-white dark:border-neutral-600 dark:bg-black`}
               >
                 {/* COLLECTION */}
                 <td className="reservoir-body flex items-center gap-4 whitespace-nowrap px-6 py-4 dark:text-white">

@@ -145,7 +145,7 @@ const App: FC<AppProps & { baseUrl: string }> = ({
         lightTheme({
           headlineFont: FONT_FAMILY,
           font: BODY_FONT_FAMILY,
-          primaryColor: primaryColorPalette['700'],
+          primaryColor: '#000',
           primaryHoverColor: primaryColorPalette['900'],
         })
       )

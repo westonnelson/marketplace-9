@@ -3,9 +3,11 @@ import type { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next'
 import { paths } from '@reservoir0x/reservoir-sdk'
 import setParams from 'lib/params'
 import Head from 'next/head'
-// import TrendingCollectionTable from 'components/TrendingCollectionTable'
+import TrendingCollectionTable from 'components/TrendingCollectionTable'
+import SortTrendingCollections from 'components/SortTrendingCollections'
 import Footer from 'components/Footer'
-import React, { useEffect } from 'react'
+import { useMediaQuery } from '@react-hookz/web'
+import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import CustomCollectionsGrid from '../components/CustomCollectionsGrid'
 import Link from 'next/link'
@@ -33,6 +35,7 @@ const COLLECTION_SET_ID = process.env.NEXT_PUBLIC_COLLECTION_SET_ID
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
 const Home: NextPage<Props> = ({ fallback }) => {
+  const isSmallDevice = useMediaQuery('only screen and (max-width : 600px)')
   const router = useRouter()
 
   useEffect(() => {
@@ -73,11 +76,18 @@ const Home: NextPage<Props> = ({ fallback }) => {
           </div>
         </div>
         <div className="mb-9 flex w-full items-center justify-between mt-[60px]">
-          <div className="reservoir-h4 dark:text-white">
+          <div className="reservoir-h4 text-white">
             Top Collections
           </div>
         </div>
         <CustomCollectionsGrid collections={fallback.topCollections} />
+        <div className="mb-9 flex w-full items-center justify-between">
+          <div className="reservoir-h4 text-white">
+            Trending Collections
+          </div>
+          {!isSmallDevice && <SortTrendingCollections />}
+        </div>
+        <TrendingCollectionTable fallback={fallback} />
       </div>
       <Footer />
     </Layout>
@@ -88,10 +98,17 @@ export default Home
 
 export const getStaticProps: GetStaticProps<{
   fallback: {
-    topCollections: any
+    topCollections: any,
+    collections: paths['/collections/v5']['get']['responses']['200']['schema']
   }
 }> = async () => {
   const options: RequestInit | undefined = {}
+
+  if (RESERVOIR_API_KEY) {
+    options.headers = {
+      'x-api-key': RESERVOIR_API_KEY,
+    }
+  }
 
   const collectionIds = [
     "0x8dbc32a6a29c1398184256a83553d038ae74db62",
@@ -113,13 +130,31 @@ export const getStaticProps: GetStaticProps<{
       }
     }).then(res => res.json())))
 
+  const url = new URL('/collections/v5', RESERVOIR_API_BASE)
+
+  let query: paths['/collections/v5']['get']['parameters']['query'] = {
+    limit: 20,
+    sortBy: '1DayVolume',
+    normalizeRoyalties: true,
+  }
+
+  if (COLLECTION && !COMMUNITY) query.contract = [COLLECTION]
+  if (COMMUNITY) query.community = COMMUNITY
+  if (COLLECTION_SET_ID) query.collectionsSetId = COLLECTION_SET_ID
+
+  const href = setParams(url, query)
+  const res = await fetch(href, options)
+
+  const collections = (await res.json()) as Props['fallback']['collections']
+
   return {
     props: {
       fallback: {
         topCollections: topCollections.map((t, i) => ({
           ...t.collections?.[0],
           id: collectionIds[i]
-        }))
+        })),
+        collections,
       },
     },
   }
