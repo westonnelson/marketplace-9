@@ -60,7 +60,7 @@ const Home: NextPage<Props> = ({ fallback }) => {
           <meta name="og:image" content={META_IMAGE} />
         </Head>
       </Head>
-      <div className="col-span-full px-6 md:px-16 mb-[50px]">
+      <div className="col-span-full px-6 md:px-16 mb-[50px] main">
         <div className="mb-9 flex w-full items-center justify-between">
           <div className="hero-home">
             <Link href="/stats" legacyBehavior={true}>
@@ -70,10 +70,6 @@ const Home: NextPage<Props> = ({ fallback }) => {
                 <strong>Discover</strong>
               </a>
             </Link>
-            <div>
-              <h2>Buy and Sell NFTs on L2</h2>
-              <p>NFTEarth</p>
-            </div>
           </div>
         </div>
         <div className="mb-9 flex w-full items-center justify-between mt-[60px]">

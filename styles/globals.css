@@ -72,14 +72,29 @@ model-viewer {
   text-decoration: underline;
 }
 
+.main {
+  background-image: url("/NFTEBanner.png");
+  background-size: cover;
+  background-position: center 90px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+@media (max-width: 700px) {
+  .main {
+    background-position: center 60px;
+    background-size: contain;
+  }
+}
+
 .hero-home {
   width: 100%;
   height: 400px;
   content: ' ';
   margin-top: 30px;
   border-radius: 16px;
-  background-image: url("/BannerNFTE.png");
-  background-position: center;
+
+
   background-size: cover;
   position: relative;
 }
@@ -88,36 +103,4 @@ model-viewer {
   position: absolute;
   bottom: 20px;
   right: 20px;
-}
-
-.hero-home > div {
-  position: absolute;
-  left: 20px;
-  top: 20px;
-  width: 30%;
-}
-
-.hero-home > div > h2 {
-  font-size: 80px;
-  font-weight: bold;
-  color: #000;
-  text-shadow: 4px 3px 0 #387e39;
-  line-height: 1em;
-  margin-bottom: 20px;
-}
-
-.hero-home > div > p {
-  color: #043b14;
-  font-weight: bold;
-  text-shadow: 1px 1px 0 #fff;
-}
-
-@media (max-width: 700px) {
-  .hero-home > div {
-    width: 50%;
-  }
-
-  .hero-home > div > h2 {
-    font-size: 60px;
-  }
 }
