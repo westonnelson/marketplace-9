@@ -252,7 +252,7 @@ const Hero: FC<Props> = ({ fallback, collectionId }) => {
                 trigger={
                   <button
                     disabled={isInTheWrongNetwork}
-                    className="btn-primary-outline min-w-[222px] whitespace-nowrap border border-[#D4D4D4] bg-white text-black dark:border-[#525252] dark:bg-black dark:text-black dark:ring-[#525252] dark:focus:ring-4"
+                    className="btn-primary-outline min-w-[222px] whitespace-nowrap border border-[#D4D4D4] bg-white text-black dark:border-[#525252] dark:bg-black dark:text-white dark:ring-[#525252] dark:focus:ring-4"
                   >
                     {isAttributeModal
                       ? 'Make an Attribute Offer'
