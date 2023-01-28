@@ -11,15 +11,12 @@ type Props = {
 }
 
 const CollectionsGrid: FC<Props> = ({ collections }) => {
-  const {
-    collections: collectionsData
-  } = collections
 
-  const mappedCollections = collectionsData
-    ? collectionsData
-        // @ts-ignore
-        .filter((collection) => !collection?.sampleImages?.includes(null))
-    : []
+  // const mappedCollections = collectionsData
+  //   ? collectionsData
+  //       // @ts-ignore
+  //       .filter((collection) => !collection?.sampleImages?.includes(null))
+  //   : []
   const didReachEnd = true;
 
   return (
@@ -37,7 +34,7 @@ const CollectionsGrid: FC<Props> = ({ collections }) => {
       className="masonry-grid col-span-full px-2"
       columnClassName="masonry-grid_column"
     >
-      {!collectionsData
+      {!collections
         ? Array(16)
             .fill(null)
             .map((_, index) => (
@@ -46,21 +43,21 @@ const CollectionsGrid: FC<Props> = ({ collections }) => {
                 className="h-[310px] w-full animate-pulse bg-white shadow-md dark:bg-neutral-900"
               />
             ))
-        : mappedCollections
+        : collections
             .map((collection: any, idx: number) => (
               <Link
                 key={`${collection?.name}${idx}`}
-                href={`/collections/${idx}`}
+                href={`/collections/${collection?.collection_id}`}
                 legacyBehavior={true}
                 passHref
               >
                 <a className="group mb-6 block transform-gpu overflow-hidden rounded-[16px] border border-[#D4D4D4] bg-white p-3 transition ease-in hover:-translate-y-0.5 hover:scale-[1.01] hover:shadow-lg hover:ease-out dark:border-0 dark:bg-neutral-800 dark:ring-1 dark:ring-neutral-600">
                   <ImagesGrid
-                    sample_images={collection?.banner_image_url}
+                    sample_images={[collection?.image_url, collection?.image_url, collection?.image_url, collection?.image_url]}
                     value={collection?.name || ''}
                   />
                   <div className="mt-3 flex items-center gap-2">
-                    {(collection?.image_url || false) ? (
+                    {collection?.image_url ? (
                       <img
                         src={optimizeImage(collection?.image_url, 80)}
                         className="h-12 w-12 rounded-full"

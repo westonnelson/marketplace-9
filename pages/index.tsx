@@ -98,28 +98,29 @@ export const getStaticProps: GetStaticProps<{
   const options: RequestInit | undefined = {}
 
   const collectionIds = [
-    "0x9B9F542456ad12796cCB8EB6644f29E3314e68e1",
+    "0x8dbc32a6a29c1398184256a83553d038ae74db62",
     "0x0deaAc29d8A3d4EbBAAa3eCd3cC97C9deF00f720",
+    "0x9B9F542456ad12796cCB8EB6644f29E3314e68e1",
     "0x66Deb6cC4d65dc9CB02875DC5E8751d71Fa5D50E",
-    "0xb8df6cc3050cc02f967db1ee48330ba23276a492",
-    "0x1ff8382e43f5cb5064044c2833ca4f1070da5d51",
-    "0x8dbc32a6A29C1398184256a83553d038Ae74dB62",
+    "0x9A7657d1593032C75d70950707870c3cC7ca45DC",
+    "0x5c9D55b78FEBCC2061715BA4f57EcF8EA2711F2c",
     "0x8E56343adAFA62DaC9C9A8ac8c742851B0fb8b03",
-    "0x5c9D55b78FEBCC2061715BA4f57EcF8EA2711F2c"
+    "0xfa14e1157f35e1dad95dc3f822a9d18c40e360e2"
   ]
 
-  const topCollections = await Promise.all(collectionIds.map(id => fetch(`${SIMPLEHASH_API_BASE}/api/v0/nfts/collections/optimism/${id}`, {
-    // @ts-ignore
-    headers: {
-      'X-API-KEY': SIMPLEHASH_API_KEY
-    }
-  })
-    .then(res => res.json())));
+
+  const topCollections = await Promise.all(
+    collectionIds.map(id => fetch(`${SIMPLEHASH_API_BASE}/api/v0/nfts/collections/optimism/${id}`, {
+      // @ts-ignore
+      headers: {
+        'X-API-KEY': SIMPLEHASH_API_KEY
+      }
+    }).then(res => res.json())))
 
   return {
     props: {
       fallback: {
-        topCollections
+        topCollections: topCollections.map(t => t.collections?.[0])
       },
     },
   }

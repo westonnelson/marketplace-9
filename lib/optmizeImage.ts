@@ -11,6 +11,7 @@ export function optimizeImage(
   // obj: { sm: number; md: number; lg: number; xl: number; '2xl': number }
   width: number
 ) {
+  console.log('imageHref', imageHref);
   if (!imageHref) return ''
 
   // const w =
