@@ -38,7 +38,7 @@ const ThemeSwitcher = () => {
         className={`flex flex-auto select-none p-3 transition  ${
           theme == 'light'
             ? 'cursor-not-allowed bg-[#F1E5FF] dark:bg-primary-900'
-            : 'hover:bg-[#F1E5FF] dark:hover:bg-primary-900'
+            : 'hover:bg-[#F1E5FF] dark:hover:text-black dark:hover:bg-primary-900'
         }`}
         aria-label="Light Mode"
       >
@@ -50,7 +50,7 @@ const ThemeSwitcher = () => {
         disabled={theme == 'dark'}
         className={`flex flex-auto select-none p-3 transition  ${
           theme == 'dark'
-            ? 'cursor-not-allowed bg-[#F1E5FF] dark:bg-primary-900'
+            ? 'cursor-not-allowed bg-[#F1E5FF] dark:bg-primary-900 dark:hover:text-black dark:text-black'
             : 'hover:bg-[#F1E5FF] dark:hover:bg-primary-900'
         }`}
         aria-label="Dark Mode"

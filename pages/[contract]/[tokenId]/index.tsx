@@ -110,6 +110,28 @@ const Index: NextPage<Props> = ({ collectionId, tokenDetails }) => {
     }
   )
 
+  useEffect(() => {
+    if (CHAIN_ID && (+CHAIN_ID === 1 || +CHAIN_ID === 5 || +CHAIN_ID === 10)) {
+      const baseUrl =
+        (+CHAIN_ID === 1 || +CHAIN_ID === 10)
+          ? 'https://api.opensea.io'
+          : 'https://testnets-api.opensea.io'
+
+      fetch(
+        `${baseUrl}/v2/orders/optimism/seaport/offers?asset_contract_address=${collectionId}&token_ids=${router.query?.tokenId?.toString()}`
+      ).then(async (data) => {
+        const response = await data.json()
+        fetch(`${PROXY_API_BASE}/seaport/offers`, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          method: 'POST',
+          body: JSON.stringify(response),
+        })
+      })
+    }
+  }, [])
+
   if (tokenData.error) {
     return <div>There was an error</div>
   }
