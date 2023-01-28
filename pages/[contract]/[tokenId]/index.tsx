@@ -110,28 +110,6 @@ const Index: NextPage<Props> = ({ collectionId, tokenDetails }) => {
     }
   )
 
-  useEffect(() => {
-    if (CHAIN_ID && (+CHAIN_ID === 1 || +CHAIN_ID === 5 || +CHAIN_ID === 10)) {
-      const baseUrl =
-        (+CHAIN_ID === 1 || +CHAIN_ID === 10)
-          ? 'https://api.opensea.io'
-          : 'https://testnets-api.opensea.io'
-
-      fetch(
-        `${baseUrl}/v2/orders/optimism/seaport/offers?asset_contract_address=${collectionId}&token_ids=${router.query?.tokenId?.toString()}`
-      ).then(async (data) => {
-        const response = await data.json()
-        fetch(`${PROXY_API_BASE}/seaport/offers`, {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          method: 'POST',
-          body: JSON.stringify(response),
-        })
-      })
-    }
-  }, [])
-
   if (tokenData.error) {
     return <div>There was an error</div>
   }
@@ -173,7 +151,7 @@ const Index: NextPage<Props> = ({ collectionId, tokenDetails }) => {
       </Head>
       <div className="col-span-full content-start space-y-4 px-2 pt-4 md:col-span-4 lg:col-span-5 lg:col-start-2 lg:px-0 2xl:col-span-4 2xl:col-start-3 3xl:col-start-5 4xl:col-start-7">
         <div className="mb-4">
-          <TokenMedia token={token.token} collectionImage={collection?.image} />
+          <TokenMedia token={token.token} />
         </div>
         <div className="hidden space-y-4 md:block">
           <CollectionInfo collection={collection} token={token.token} />
