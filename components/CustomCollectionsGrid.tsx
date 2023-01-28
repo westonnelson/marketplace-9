@@ -47,7 +47,7 @@ const CollectionsGrid: FC<Props> = ({ collections }) => {
             .map((collection: any, idx: number) => (
               <Link
                 key={`${collection?.name}${idx}`}
-                href={`/collections/${collection?.collection_id}`}
+                href={`/collections/${collection?.id}`}
                 legacyBehavior={true}
                 passHref
               >

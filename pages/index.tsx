@@ -120,7 +120,10 @@ export const getStaticProps: GetStaticProps<{
   return {
     props: {
       fallback: {
-        topCollections: topCollections.map(t => t.collections?.[0])
+        topCollections: topCollections.map((t, i) => ({
+          ...t.collections?.[0],
+          id: collectionIds[i]
+        }))
       },
     },
   }
