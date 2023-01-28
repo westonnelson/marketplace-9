@@ -188,7 +188,10 @@ const App: FC<AppProps & { baseUrl: string }> = ({
             modalSize="compact"
           >
             <AnalyticsProvider>
-              <Component {...pageProps} />
+              <>
+                <Component {...pageProps} />
+                <div className="static-info">Collections might not reflect realtime data, blockchain data collection are ongoing.</div>
+              </>
             </AnalyticsProvider>
           </RainbowKitProvider>
         </WagmiConfig>

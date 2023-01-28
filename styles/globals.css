@@ -80,13 +80,6 @@ model-viewer {
   background-attachment: fixed;
 }
 
-@media (max-width: 700px) {
-  .main {
-    background-position: center 60px;
-    background-size: contain;
-  }
-}
-
 .hero-home {
   width: 100%;
   height: 400px;
@@ -103,4 +96,32 @@ model-viewer {
   position: absolute;
   bottom: 20px;
   right: 20px;
+}
+
+.static-info {
+  position: fixed;
+  top: 110px;
+  left: 10px;
+  padding: 10px;
+  background: #fff;
+  color: orange;
+  font-size: small;
+  width: 300px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+
+@media (max-width: 700px) {
+  .main {
+    background-position: center 60px;
+    background-size: contain;
+  }
+
+  .static-info {
+    top: auto;
+    left: auto;
+    right: 10px;
+    bottom: 10px;
+  }
 }
