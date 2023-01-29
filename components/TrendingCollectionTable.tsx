@@ -114,7 +114,7 @@ const TrendingCollectionTable: FC<Props> = ({ fallback, alternate }) => {
                         className="h-[56px] w-[56px] rounded-full object-cover"
                       />
                       <div
-                        className={`reservoir-h6 overflow-hidden truncate whitespace-nowrap dark:text-white ${
+                        className={`reservoir-h6 max-w-[80%] overflow-hidden truncate whitespace-nowrap dark:text-white ${
                           isSmallDevice ? 'max-w-[140px]' : ''
                         }`}
                       >
