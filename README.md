@@ -1,12 +1,15 @@
 <h3 align="center">NFTEarth</h3>
   <p align="center">
-An open source NFT marketplace built on Layer2 using Reservoir.
+An opensource NFT marketplace on Layer2 Ethereum using Reservoir, SimpleHash, Alchemy, and AWS.
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
+![NFTEarth Roadmap 2023](https://user-images.githubusercontent.com/29180454/215355711-c7e2cb41-55fc-43d7-89d7-8dc437e95d37.png)
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
 
 
 
@@ -29,7 +32,7 @@ An open source NFT marketplace built on Layer2 using Reservoir.
 <!-- Contributing -->
 ## Contributing
 
-If you'd like to contribute please follow the [guidelines](https://github.com/reservoirprotocol/marketplace/blob/main/CONTRIBUTING.md).
+If you'd like to contribute to the project, please join the community or open a new issue or PR on GitHub!
 
 <!-- CONTACT -->
 ## Contact
