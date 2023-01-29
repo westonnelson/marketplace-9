@@ -734,15 +734,15 @@
   resolved "https://registry.yarnpkg.com/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-13.0.7.tgz#7aaa6cee723cde844e891e895e5561a60d9fa7f3"
   integrity sha512-kvdnlLcrnEq72ZP0lqe2Z5NqvB9N5uSCvtXJ0PhKvNncWWd0fEG9Ec9erXgwCmVlM2ytw41k9/uuQ+SVw4Pihw==
 
-"@nftearth/reservoir-kit-ui@^0.8.13":
-  version "0.8.13"
-  resolved "https://registry.yarnpkg.com/@nftearth/reservoir-kit-ui/-/reservoir-kit-ui-0.8.13.tgz#02e8a3bdc38970723c613580cd658a76fda0bd8e"
-  integrity sha512-h2VZTyvc374wH7uvY+Ac+8+VsZ4YPM3rhmDlIpIW3I4qeZTFXTlCFk/Xio6PlDCwC+tUOfJUp6BvNr503TjWrA==
+"@nftearth/reservoir-kit-ui@^0.8.14":
+  version "0.8.14"
+  resolved "https://registry.yarnpkg.com/@nftearth/reservoir-kit-ui/-/reservoir-kit-ui-0.8.14.tgz#97dbf12bec4c8d4b4106f0e7b2e740cdaf0eee2e"
+  integrity sha512-573gZOpqIcJ+qN1e23VuX2WbU6SrEiKJP9RmLeD5KDK6XQPWJF42NJFHYfqwnHArnNOUAakL4UzcantAT06lbg==
   dependencies:
     "@fortawesome/fontawesome-svg-core" "^6.1.1"
     "@fortawesome/free-solid-svg-icons" "^6.1.1"
     "@fortawesome/react-fontawesome" "^0.2.0"
-    "@nftearth/reservoir-sdk" "0.3.7"
+    "@nftearth/reservoir-sdk" "0.3.8"
     "@radix-ui/colors" "^0.1.8"
     "@radix-ui/react-dialog" "1.0.1-rc.2"
     "@radix-ui/react-popover" "1.0.1-rc.2"
@@ -758,14 +758,7 @@
     react-flatpickr "^3.10.13"
     swr "2.0.1"
 
-"@nftearth/reservoir-sdk@0.3.7":
-  version "0.3.7"
-  resolved "https://registry.yarnpkg.com/@nftearth/reservoir-sdk/-/reservoir-sdk-0.3.7.tgz#6b9feb09dae002d5a2470daa25781c31c1e961af"
-  integrity sha512-iuVcJQW7W+Jp9JWkXvRc3IwnJcJqtJ80VdmvCo3VU9J00NHqYD49fUiYzA3b6b9MrM4mkwlS8RVGLiAqJ39S3Q==
-  dependencies:
-    axios "^0.27.2"
-
-"@nftearth/reservoir-sdk@^0.3.8":
+"@nftearth/reservoir-sdk@0.3.8", "@nftearth/reservoir-sdk@^0.3.8":
   version "0.3.8"
   resolved "https://registry.yarnpkg.com/@nftearth/reservoir-sdk/-/reservoir-sdk-0.3.8.tgz#d394a6037ad7024492c5be87b83436422fe80af2"
   integrity sha512-AZhhBSxl1wGbjqNUuMkwuHf++BElEnsPpLiC14gAc6Q9+SqwVDwQqVUgnjQoho+Zl5pGGa4XH7HVo94FNC5aHw==
