@@ -125,14 +125,17 @@ export const getStaticProps: GetStaticProps<{
     "0x5da95bBdA95Ad9c715195E98a974B2425337c468"
   ]
 
-
   const topCollections = await Promise.all(
-    collectionIds.map(id => fetch(`${SIMPLEHASH_API_BASE}/api/v0/nfts/collections/optimism/${id}`, {
-      // @ts-ignore
-      headers: {
-        'X-API-KEY': SIMPLEHASH_API_KEY
-      }
-    }).then(res => res.json())))
+    collectionIds.map(id => {
+
+      const url = new URL(`/api/v0/nfts/collections/optimism/${id}`, SIMPLEHASH_API_BASE)
+      return fetch(url.href, {
+        // @ts-ignore
+        headers: {
+          'X-API-KEY': SIMPLEHASH_API_KEY
+        }
+      }).then(res => res.json())
+    }));
 
   const url = new URL('/collections/v5', RESERVOIR_API_BASE)
 
