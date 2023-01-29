@@ -191,7 +191,7 @@ const App: FC<AppProps & { baseUrl: string }> = ({
             <AnalyticsProvider>
               <>
                 <Component {...pageProps} />
-                <div className="static-info">Collections might not reflect realtime data, blockchain data collection are ongoing.</div>
+                <div className="static-info">Important: Full syncronization of blockchain data for collections is ongoing, and NFT Collections may not reflect real-time data.</div>
               </>
             </AnalyticsProvider>
           </RainbowKitProvider>
