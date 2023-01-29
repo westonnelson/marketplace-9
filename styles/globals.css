@@ -73,7 +73,7 @@ model-viewer {
 }
 
 .main {
-  background-image: url("/NFTEBanner.png");
+  background-image: url("/NFTEBanner.svg");
   background-size: cover;
   background-position: center 90px;
   background-repeat: no-repeat;

@@ -17,7 +17,7 @@ const TokenInfo: FC<Props> = ({ token }) => {
   const envChain = useEnvChain()
 
   const blockExplorerBaseUrl =
-    envChain?.blockExplorers?.default?.url || 'https://etherscan.io'
+    envChain?.blockExplorers?.default?.url || 'https://optimistic.etherscan.io'
 
   async function refreshToken(token: string | undefined) {
     function handleError(message?: string) {
