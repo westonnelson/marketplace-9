@@ -1,4 +1,4 @@
-import { useTokens } from '@reservoir0x/reservoir-kit-ui'
+import { useTokens } from '@nftearth/reservoir-kit-ui'
 import { optimizeImage } from 'lib/optmizeImage'
 import Script from 'next/script'
 import { FC } from 'react'

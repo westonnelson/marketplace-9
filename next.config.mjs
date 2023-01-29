@@ -4,7 +4,7 @@
 const nextConfig = {
   reactStrictMode: true,
   experimental: {
-    transpilePackages: ['@reservoir0x/reservoir-kit-ui'],
+    transpilePackages: ['@nftearth/reservoir-kit-ui'],
   },
   env: {
     NEXT_PUBLIC_CHAIN_ID: process.env.NEXT_PUBLIC_CHAIN_ID,

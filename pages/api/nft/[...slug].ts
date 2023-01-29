@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import { setParams } from '@reservoir0x/reservoir-sdk'
+import { setParams } from '@nftearth/reservoir-sdk'
 
 const SIMPLEHASH_API_BASE = process.env.NEXT_PUBLIC_SIMPLEHASH_API_BASE
 const SIMPLEHASH_API_KEY = process.env.NEXT_PUBLIC_SIMPLEHASH_API_KEY

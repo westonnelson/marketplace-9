@@ -1,4 +1,4 @@
-import { Execute, paths } from '@reservoir0x/reservoir-sdk'
+import { Execute, paths } from '@nftearth/reservoir-sdk'
 import React, {
   ComponentProps,
   FC,
@@ -22,7 +22,7 @@ import * as SliderPrimitive from '@radix-ui/react-slider'
 import Link from 'next/link'
 import { Signer } from 'ethers'
 import { FaBroom } from 'react-icons/fa'
-import { useReservoirClient, useTokens } from '@reservoir0x/reservoir-kit-ui'
+import { useReservoirClient, useTokens } from '@nftearth/reservoir-kit-ui'
 import { Collection } from 'types/reservoir'
 import useCoinConversion from 'hooks/useCoinConversion'
 import { formatDollar } from 'lib/numbers'

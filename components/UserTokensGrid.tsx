@@ -1,9 +1,9 @@
 import { FC, useEffect } from 'react'
 import LoadingCard from './LoadingCard'
-import { useUserTokens } from '@reservoir0x/reservoir-kit-ui'
+import { useUserTokens } from '@nftearth/reservoir-kit-ui'
 import { useInView } from 'react-intersection-observer'
 import TokenCard from './TokenCard'
-import { paths } from '@reservoir0x/reservoir-sdk'
+import { paths } from '@nftearth/reservoir-sdk'
 
 const COLLECTION = process.env.NEXT_PUBLIC_COLLECTION
 const COMMUNITY = process.env.NEXT_PUBLIC_COMMUNITY

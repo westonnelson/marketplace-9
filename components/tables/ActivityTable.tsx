@@ -15,7 +15,7 @@ import FormatNativeCrypto from 'components/FormatNativeCrypto'
 import {
   useCollectionActivity,
   useUsersActivity,
-} from '@reservoir0x/reservoir-kit-ui'
+} from '@nftearth/reservoir-kit-ui'
 import { useInView } from 'react-intersection-observer'
 import MobileActivityFilter from 'components/filter/MobileActivityFilter'
 

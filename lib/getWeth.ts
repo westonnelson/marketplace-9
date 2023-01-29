@@ -1,6 +1,6 @@
 import { Provider } from '@ethersproject/abstract-provider'
 import { BigNumber, Signer } from 'ethers'
-import { Common } from '@reservoir0x/sdk'
+import { Common } from '@nftearth/sdk'
 
 /**
  * Get a wETH contract instance and the signers wETH balance

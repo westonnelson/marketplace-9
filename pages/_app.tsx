@@ -29,7 +29,7 @@ import {
   ReservoirKitProvider,
   ReservoirKitProviderProps,
   ReservoirKitTheme,
-} from '@reservoir0x/reservoir-kit-ui'
+} from '@nftearth/reservoir-kit-ui'
 import { FC, useEffect, useState } from 'react'
 import '@rainbow-me/rainbowkit/styles.css'
 
@@ -147,6 +147,7 @@ const App: FC<AppProps & { baseUrl: string }> = ({
           font: BODY_FONT_FAMILY,
           primaryColor: '#000',
           primaryHoverColor: primaryColorPalette['900'],
+          buttonTextColor: '#000'
         })
       )
       setRainbowKitTheme(
