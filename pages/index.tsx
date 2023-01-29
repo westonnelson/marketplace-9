@@ -123,7 +123,6 @@ export const getStaticProps: GetStaticProps<{
     "0x00e3aA03e47c32397a94509E50B0558988C0D04E",
     "0x1e04C33cD5A015e1ced0E3Ecd8BDc42902512124",
     "0x5da95bBdA95Ad9c715195E98a974B2425337c468"
-
   ]
 
 

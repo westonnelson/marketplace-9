@@ -1,8 +1,7 @@
-import { Execute, paths } from '@nftearth/reservoir-sdk'
+import { Execute } from '@nftearth/reservoir-sdk'
 import React, {
   ComponentProps,
   FC,
-  useContext,
   useEffect,
   useState,
 } from 'react'
@@ -181,7 +180,7 @@ const Sweep: FC<Props> = ({ tokens, collection, mutate, setToast }) => {
         })
       }
       return tokens
-    }, [] as NonNullable<Parameters<typeof reservoirClient.actions.buyToken>['0']['tokens']>)
+    }, [] as any)
     await reservoirClient.actions
       .buyToken({
         expectedPrice: sweepTotal,
