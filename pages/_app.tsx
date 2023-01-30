@@ -133,6 +133,8 @@ const App: FC<AppProps & { baseUrl: string }> = ({
           font: BODY_FONT_FAMILY,
           primaryColor: primaryColorPalette['700'],
           primaryHoverColor: primaryColorPalette['900'],
+          buttonTextColor: '#000',
+          buttonTextHoverColor: '#a10aff'
         })
       )
       setRainbowKitTheme(

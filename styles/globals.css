@@ -7,7 +7,11 @@
     @apply font-headings dark:text-white;
   }
   .reservoir-body, .reservoir-subtitle, .reservoir-label-s,.btn-primary-outline {
-    @apply dark:text-white
+    @apply dark:text-black;
+  }
+
+  .reservoir-body, .reservoir-subtitle, .reservoir-label-s,.btn-primary-fill {
+    @apply dark:text-black;
   }
 }
 
