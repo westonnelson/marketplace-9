@@ -162,7 +162,7 @@ export const getStaticProps: GetStaticProps<{
       fallback: {
         topCollections: topCollections.map((t, i) => ({
           ...t.collections?.[0],
-          id: collectionIds[i]
+          id: collectionIds[i].toLowerCase()
         })),
         collections,
       },
