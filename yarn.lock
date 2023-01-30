@@ -734,15 +734,15 @@
   resolved "https://registry.yarnpkg.com/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-13.0.7.tgz#7aaa6cee723cde844e891e895e5561a60d9fa7f3"
   integrity sha512-kvdnlLcrnEq72ZP0lqe2Z5NqvB9N5uSCvtXJ0PhKvNncWWd0fEG9Ec9erXgwCmVlM2ytw41k9/uuQ+SVw4Pihw==
 
-"@nftearth/reservoir-kit-ui@^0.8.18":
-  version "0.8.18"
-  resolved "https://registry.yarnpkg.com/@nftearth/reservoir-kit-ui/-/reservoir-kit-ui-0.8.18.tgz#1ef28193bc2829f4c2fb9d8c7c284ec65f46a3c8"
-  integrity sha512-dBNS0tWEGN5eMHV1zRHhaB/kpX6K0ZRtQh0NjcPbEz5t/1o8mSaP1ydaFYsvk3f3kTWM/uoEI7Efy7CyhuNzEA==
+"@nftearth/reservoir-kit-ui@^0.8.19":
+  version "0.8.19"
+  resolved "https://registry.yarnpkg.com/@nftearth/reservoir-kit-ui/-/reservoir-kit-ui-0.8.19.tgz#b0e590d8ce014df0de8905de94ee1920cf4b3731"
+  integrity sha512-vprEHFqp3aMf+fiVljHEvwJ1otr/C8ZrqQ9lgCy9uCYc2DJavEJDVFML3Y5WNsWQc7VXzUPoxi4hK6fOmUwV5g==
   dependencies:
     "@fortawesome/fontawesome-svg-core" "^6.1.1"
     "@fortawesome/free-solid-svg-icons" "^6.1.1"
     "@fortawesome/react-fontawesome" "^0.2.0"
-    "@nftearth/reservoir-sdk" "0.3.11"
+    "@nftearth/reservoir-sdk" "0.3.12"
     "@radix-ui/colors" "^0.1.8"
     "@radix-ui/react-dialog" "1.0.1-rc.2"
     "@radix-ui/react-popover" "1.0.1-rc.2"
@@ -758,17 +758,10 @@
     react-flatpickr "^3.10.13"
     swr "2.0.1"
 
-"@nftearth/reservoir-sdk@0.3.11":
-  version "0.3.11"
-  resolved "https://registry.yarnpkg.com/@nftearth/reservoir-sdk/-/reservoir-sdk-0.3.11.tgz#cc355794cdbb1e3c5e99f4d12c56d29efe798d67"
-  integrity sha512-/3w2JxeHhumO2I3MFABuf9Tzse593OTx169cY+pOZhKQ0pcaNTarNTAZcQJeT8Gyysa6igPSfvlxLjcGHJa5hA==
-  dependencies:
-    axios "^0.27.2"
-
-"@nftearth/reservoir-sdk@^0.3.10":
-  version "0.3.10"
-  resolved "https://registry.yarnpkg.com/@nftearth/reservoir-sdk/-/reservoir-sdk-0.3.10.tgz#fd44486a2f0edb948e1116b51dfbd948c88e985c"
-  integrity sha512-gqiRlrx34kYNEO082W3c6wV1ACZsz4EEIdJWzHwVL8pwnb/qBmdU+eWRbn6JiXznUvjN9CMoglK0OCYzNU1Z0g==
+"@nftearth/reservoir-sdk@0.3.12", "@nftearth/reservoir-sdk@^0.3.12":
+  version "0.3.12"
+  resolved "https://registry.yarnpkg.com/@nftearth/reservoir-sdk/-/reservoir-sdk-0.3.12.tgz#3367a0ace51e8b06308b842e231c9b9a01b95596"
+  integrity sha512-ng3SoWhUnScBzJdXBjNzelKPnav1StDMHoPjHE8lZpkFzgOLGZLxryONGrzjmxguCmDPYdaDawSpJSCQYppd9w==
   dependencies:
     axios "^0.27.2"
 
