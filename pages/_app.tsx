@@ -147,9 +147,10 @@ const App: FC<AppProps & { baseUrl: string }> = ({
         lightTheme({
           headlineFont: FONT_FAMILY,
           font: BODY_FONT_FAMILY,
-          primaryColor: '#000',
+          primaryColor: primaryColorPalette['700'],
           primaryHoverColor: primaryColorPalette['900'],
-          buttonTextColor: '#000'
+          buttonTextColor: '#000',
+          buttonTextHoverColor: '#a10aff'
         })
       )
       setRainbowKitTheme(
